@@ -35,6 +35,8 @@
 
 
 
+<script src="/js/lib/search.js"></script>
+
 
 
 <link rel="stylesheet" href="/css/main.css" />
@@ -62,7 +64,7 @@
             <span>&ensp;主页</span>
         </a>
         
-        <a href="/2023/04/14/about/">
+        <a href="/2023/04/15/about/">
             <i class="fa-solid fa-id-card fa-fw"></i>
             <span>&ensp;关于作者</span>
         </a>
@@ -72,7 +74,12 @@
             <span>&ensp;文章列表</span>
         </a>
         
-        <a href="/tags">
+        <a href="/categories/%E9%97%B2%E8%81%8A">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;文章分类</span>
+        </a>
+        
+        <a href="/tags/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/">
             <i class="fa-solid fa-tags fa-fw"></i>
             <span>&ensp;标签</span>
         </a>
@@ -96,7 +103,7 @@
                 </div>
             </a>
             
-            <a href="/2023/04/14/about/">
+            <a href="/2023/04/15/about/">
                 <div class="item">
                     <div style="min-width: 20px; max-width: 50px; width: 10%">
                         <i class="fa-solid fa-id-card fa-fw"></i>
@@ -114,7 +121,16 @@
                 </div>
             </a>
             
-            <a href="/tags">
+            <a href="/categories/%E9%97%B2%E8%81%8A">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">文章分类</div>
+                </div>
+            </a>
+            
+            <a href="/tags/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/">
                 <div class="item">
                     <div style="min-width: 20px; max-width: 50px; width: 10%">
                         <i class="fa-solid fa-tags fa-fw"></i>
@@ -132,6 +148,8 @@
             <div id="main" v-show="!loading">
                 
 <div id="archives">
+    
+    <input id="search-bar" class="input" placeholder="搜索" v-model="rawSearch" />
     
     <div id="timeline-wrap" ref="timeline">
         
@@ -152,7 +170,12 @@
                         
                         <span class="tag">
                             
-                            <a href="/tags/%E6%84%9F%E8%B0%A2-%E5%A3%B0%E6%98%8E/" style="color: #00a596">感谢,声明</a>
+                            <a href="/tags/%E6%84%9F%E8%B0%A2/" style="color: #00a596">感谢</a>
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/%E5%A3%B0%E6%98%8E/" style="color: #00bcd4">声明</a>
                         </span>
                         
                     </span>
@@ -164,11 +187,20 @@
         <div class="timeline" data-title="关于作者">
             <div class="timeline-tail"></div>
             <div class="timeline-content">
-                <div class="item-time">2023/4/14</div>
-                <a href="/2023/04/14/about/">
+                <div class="item-time">2023/4/15</div>
+                <a href="/2023/04/15/about/">
                     <h3>关于作者</h3>
                 </a>
                 <div class="info">
+                    
+                    <span class="category">
+                        <a href="/categories/%E9%97%B2%E8%81%8A/">
+                            <span class="icon">
+                                <i class="fa-solid fa-bookmark fa-fw"></i>
+                            </span>
+                            闲聊
+                        </a>
+                    </span>
                     
                     
                     <span class="tags">
@@ -178,7 +210,12 @@
                         
                         <span class="tag">
                             
-                            <a href="/tags/%E6%AC%A2%E8%BF%8E-%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/" style="color: #00a596">欢迎,自我介绍</a>
+                            <a href="/tags/%E6%AC%A2%E8%BF%8E/" style="color: #ff7d73">欢迎</a>
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/" style="color: #ffa2c4">自我介绍</a>
                         </span>
                         
                     </span>
