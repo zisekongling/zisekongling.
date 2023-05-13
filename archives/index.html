@@ -45,16 +45,16 @@
     <body>
         <div id="layout">
             <transition name="fade">
-            <div id="loading" v-show="loading">
-                <div id="loading-circle">
-                    <h2>LOADING</h2>
-                    <p>加载过慢请开启缓存 浏览器默认开启</p>
-                    <img src="/images/loading.gif" />
+                <div id="loading" v-show="loading">
+                    <div id="loading-circle">
+                        <h2>LOADING</h2>
+                        <p>加载过慢请开启缓存 浏览器默认开启</p>
+                        <img src="/images/loading.gif" />
+                    </div>
                 </div>
-            </div>
             </transition>
             <nav id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
-    <div class="desktop-menu">
+    <div id="desktop-menu">
         <a class="title" href="/">
             <span>云鲸屿服务器官网</span>
         </a>
@@ -81,58 +81,60 @@
         
     </div>
     <div id="mobile-menu">
-        <div class="curtain" @click="shouMenuItems = !shouMenuItems" v-show="shouMenuItems"></div>
-        <div class="title" @click="shouMenuItems = !shouMenuItems">
+        <div class="title" @click="showMenuItems = !showMenuItems">
             <i class="fa-solid fa-bars fa-fw"></i>
             <span>&emsp;云鲸屿服务器官网</span>
         </div>
         <transition name="slide">
-        <div class="items" v-show="shouMenuItems">
-            
-            <a href="/">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-home fa-fw"></i>
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-home fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">主页</div>
                     </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">主页</div>
-                </div>
-            </a>
-            
-            <a href="/archives">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">信息列表</div>
                     </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">信息列表</div>
-                </div>
-            </a>
-            
-            <a href="/categories/%E5%85%AC%E5%91%8A">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                </a>
+                
+                <a href="/categories/%E5%85%AC%E5%91%8A">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">信息分类</div>
                     </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">信息分类</div>
-                </div>
-            </a>
-            
-            <a href="/tags/%E6%AC%A2%E8%BF%8E">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-tags fa-fw"></i>
+                </a>
+                
+                <a href="/tags/%E6%AC%A2%E8%BF%8E">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">信息标签</div>
                     </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">信息标签</div>
-                </div>
-            </a>
-            
-        </div>
+                </a>
+                
+            </div>
         </transition>
     </div>
 </nav>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
 
             <transition name="into">
-            <div id="main" v-show="!loading">
-                
+                <div id="main" v-show="!loading">
+                    
 <div id="archives">
     
     <input id="search-bar" class="input" placeholder="搜索" v-model="rawSearch" />
@@ -191,7 +193,7 @@
                         
                         <span class="tag">
                             
-                            <a href="/tags/%E6%84%9F%E8%B0%A2/" style="color: #ff7d73">感谢</a>
+                            <a href="/tags/%E6%84%9F%E8%B0%A2/" style="color: #03a9f4">感谢</a>
                         </span>
                         
                     </span>
@@ -203,7 +205,7 @@
     </div>
 </div>
 
-                <footer id="footer">
+                    <footer id="footer">
     <div id="footer-wrap">
         <div>
             &copy;
@@ -215,19 +217,19 @@
         </div>
         <div>
             Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
-            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
         </div>
         
     </div>
 </footer>
 
-            </div>
+                </div>
             </transition>
             
             <transition name="fade">
-            <div id="preview" ref="preview" v-show="previewShow">
-                <img id="preview-content" ref="previewContent" />
-            </div>
+                <div id="preview" ref="preview" v-show="previewShow">
+                    <img id="preview-content" ref="previewContent" />
+                </div>
             </transition>
             
         </div>
