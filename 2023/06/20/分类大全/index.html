@@ -3,7 +3,7 @@
 <html lang="cn">
     <head>
         <meta charset="utf-8" />
-        <title>Categories: 公告 | 云鲸屿服务器官网</title>
+        <title>文章分类大全 | 云鲸屿服务器官网</title>
         <meta name="author" content="_碎屿y" />
         <meta name="description" content="" />
         <meta name="keywords" content="" />
@@ -32,6 +32,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -132,26 +136,20 @@
 
             <transition name="into">
                 <div id="main" v-show="!loading">
-                    <div id="archives">
-    
-    <div class="categories-tags">
-        
-        
-        <span>
-            <a href="/categories/%E5%85%AC%E5%91%8A/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                公告
-            </a>
+                    <div class="article">
+    <div>
+        <h1>文章分类大全</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/6/20
         </span>
         
-        
-        
-        
-        
-        <span>
-            <a href="/categories/%E5%B7%A5%E5%85%B7/" style="background: #ffa2c4">
+        <span class="category">
+            <a href="/categories/%E5%B7%A5%E5%85%B7/">
                 <span class="icon">
                     <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
@@ -160,42 +158,54 @@
         </span>
         
         
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E7%B4%AB%E8%89%B2%E7%A9%BA%E7%81%B5/" style="color: #ff7d73">紫色空灵</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E7%A2%8E%E5%B1%BFy/" style="color: #00bcd4">_碎屿y</a>
+            </span>
+            
+        </span>
+        
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2023/4/15</div>
-            <a href="/2023/04/15/about/">
-                <h3>关于服务器</h3>
-            </a>
-            <div class="info">
-                
-                <span class="category">
-                    <a href="/categories/%E5%85%AC%E5%91%8A/">
-                        <span class="icon">
-                            <i class="fa-solid fa-bookmark fa-fw"></i>
-                        </span>
-                        公告
-                    </a>
-                </span>
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/%E6%AC%A2%E8%BF%8E/" style="color: #ffa2c4">欢迎</a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    <div class="content" v-pre>
+        <table>
+<thead>
+<tr>
+<th>标签名称</th>
+<th>标签描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="../../../../categories/%E5%B7%A5%E5%85%B7">工具</a></td>
+<td>这个文章是一个工具文章，帮你更好的使用这个网站</td>
+</tr>
+<tr>
+<td><a href="../../../../categories/%E5%B7%A5%E5%91%8A">工告</a></td>
+<td>公告</td>
+</tr>
+</tbody></table>
+
     </div>
+    
+    
+    
+    
+    <div id="comment">
+        <div id="giscus-container" class="giscus"></div>
+    </div>
+    
+    
+    
     
 </div>
 
@@ -228,6 +238,29 @@
             
         </div>
         <script src="/js/main.js"></script>
+        
+        
+<script
+    src="https://giscus.app/client.js"
+    data-repo=""
+    data-repo-id=""
+    data-category=""
+    data-category-id=""
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    crossorigin
+    async
+></script>
+
+
+
+
+
         
     </body>
 </html>
