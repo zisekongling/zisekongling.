@@ -68,7 +68,7 @@
     width: 100%;
 }
 #footer #footer-icon {
-    color: #66afef;
+    color: #FFC0CB;
     display: inline-block;
     font-size: 18px;
     margin: 0 10px;
@@ -135,7 +135,7 @@
 #home-card .card-style .icon-links a:hover,
 #home-card .card-style .friend-links a:hover,
 #home-posts .page-current .page-num:hover {
-    background: #66afef;
+    background: #FFC0CB;
     color: #fff;
 }
 #home-card .card-style .icon-links,
@@ -310,7 +310,7 @@
     line-height: 1.7;
 }
 #home-posts .post-title {
-    color: #66afef;
+    color: #FFC0CB;
     text-align: center;
 }
 #home-posts .post:hover {
@@ -354,7 +354,7 @@
 }
 #loading-circle {
     align-items: center;
-    border: 10px solid #a3b1fb;
+    border: 10px solid #EE82EE;
     border-radius: 50%;
     display: flex;
     flex-direction: column;
@@ -657,7 +657,7 @@ body::-webkit-scrollbar-track {
     color: unset;
 }
 a {
-    color: #66afef;
+    color: #FFC0CB;
     text-decoration: none;
 }
 a:hover,
