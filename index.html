@@ -2,36 +2,55 @@
 <!DOCTYPE html>
 <html lang="cn">
 <head>
+    <script>
+        if (localStorage.getItem('theme') === 'dark' ||
+            (!('theme' in localStorage) &&
+                window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
     <meta charset="utf-8" />
     <title>碎屿王国官网</title>
     <meta name="author" content="_碎屿y" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <link rel="icon" href="https://static-argvchs.netlify.app/images/avatar.jpg" />
-    <link rel="preconnect" href="https://cdn.staticfile.org" />
-<script src="https://cdn.staticfile.org/vue/3.3.7/vue.global.prod.min.js"></script>
-<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.2/css/all.min.css" />
-<link rel="preconnect" href="https://fonts.loli.net" />
-<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
-<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
-<script> const mixins = {}; </script>
-
-<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-
-
-<script src="https://cdn.staticfile.org/highlight.js/11.9.0/highlight.min.js"></script>
-<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
 <link
     rel="stylesheet"
-    href="https://cdn.staticfile.org/highlight.js/11.9.0/styles/github.min.css"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<link
+    rel="stylesheet"
+    id="highlight-style-dark"
+    disabled
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/.min.css"
 />
 <script src="/js/lib/highlight.js"></script>
 
 
-<script src="https://cdn.staticfile.org/KaTeX/0.16.9/katex.min.js"></script>
-<script src="https://cdn.staticfile.org/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
-<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.9/katex.min.css" />
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.css" />
 <script src="/js/lib/math.js"></script>
 
 
@@ -43,9 +62,16 @@
 
 <script src="/js/lib/home.js"></script>
 
-<script src="https://cdn.staticfile.org/animejs/3.2.1/anime.min.js"></script>
+<!-- APlayer & MetingJS 音乐播放器（本地优先 + CDN 降级） -->
+<link rel="stylesheet" href="/lib/player/APlayer.min.css"
+    onerror="this.onerror=null;this.href='https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css';" />
+<script src="/lib/player/APlayer.min.js"
+    onerror="this.onerror=null;var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js';document.head.appendChild(s);"></script>
+<script src="/lib/player/Meting.min.js"
+    onerror="this.onerror=null;var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js';document.head.appendChild(s);"></script>
+<!-- 自定义样式 -->
+<link rel="stylesheet" href="/css/custom.css" />
 <link rel="stylesheet" href="/css/main.css" />
-<link rel="preconnect" href="https://static-argvchs.netlify.app" />
 
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body>
@@ -66,30 +92,33 @@
         </a>
         
         <a href="/">
-            <i class="fa-solid fa-house fa-fw"></i>
-            <span>&ensp;Home</span>
-        </a>
-        
-        <a href="/about">
-            <i class="fa-solid fa-id-card fa-fw"></i>
-            <span>&ensp;About</span>
+            <i class="fa-solid fa-home fa-fw"></i>
+            <span>&ensp;主页</span>
         </a>
         
         <a href="/archives">
             <i class="fa-solid fa-box-archive fa-fw"></i>
-            <span>&ensp;Archives</span>
+            <span>&ensp;文章列表</span>
         </a>
         
-        <a href="/categories">
+        <a href="/categories/">
             <i class="fa-solid fa-bookmark fa-fw"></i>
-            <span>&ensp;Categories</span>
+            <span>&ensp;文章分类</span>
         </a>
         
-        <a href="/tags">
+        <a href="/tags/">
             <i class="fa-solid fa-tags fa-fw"></i>
-            <span>&ensp;Tags</span>
+            <span>&ensp;标签</span>
         </a>
         
+        <a href="/gallery/">
+            <i class="fa-solid fa-images fa-fw"></i>
+            <span>&ensp;相册</span>
+        </a>
+        
+        <a id="theme-toggle" @click="handleThemeSwitch" :title="theme === 'auto' ? '跟随系统' : theme === 'light' ? '亮色模式' : '暗色模式'">
+            <i class="fa-fw" :class="theme === 'auto' ? 'fa-solid fa-desktop' : theme === 'light' ? 'fa-solid fa-sun' : 'fa-solid fa-moon'"></i>
+        </a>
     </nav>
     <nav id="mobile-menu">
         <div class="title" @click="showMenuItems = !showMenuItems">
@@ -102,18 +131,9 @@
                 <a href="/">
                     <div class="item">
                         <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-house fa-fw"></i>
+                            <i class="fa-solid fa-home fa-fw"></i>
                         </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
-                    </div>
-                </a>
-                
-                <a href="/about">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-id-card fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">主页</div>
                     </div>
                 </a>
                 
@@ -122,28 +142,45 @@
                         <div style="min-width: 20px; max-width: 50px; width: 10%">
                             <i class="fa-solid fa-box-archive fa-fw"></i>
                         </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">文章列表</div>
                     </div>
                 </a>
                 
-                <a href="/categories">
+                <a href="/categories/">
                     <div class="item">
                         <div style="min-width: 20px; max-width: 50px; width: 10%">
                             <i class="fa-solid fa-bookmark fa-fw"></i>
                         </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">文章分类</div>
                     </div>
                 </a>
                 
-                <a href="/tags">
+                <a href="/tags/">
                     <div class="item">
                         <div style="min-width: 20px; max-width: 50px; width: 10%">
                             <i class="fa-solid fa-tags fa-fw"></i>
                         </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">标签</div>
                     </div>
                 </a>
                 
+                <a href="/gallery/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-images fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">相册</div>
+                    </div>
+                </a>
+                
+                <a id="theme-toggle" @click="handleThemeSwitch">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-fw" :class="theme === 'auto' ? 'fa-solid fa-desktop' : theme === 'light' ? 'fa-solid fa-sun' : 'fa-solid fa-moon'"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">{{ theme === 'auto' ? '跟随系统' : theme === 'light' ? '亮色模式' : '暗色模式' }}</div>
+                    </div>
+                </a>
             </div>
         </transition>
     </nav>
@@ -154,7 +191,11 @@
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
             <div id="home-head">
-    <div id="home-background" ref="homeBackground" data-images="https://static-argvchs.netlify.app/images/background.jpg"></div>
+    <div
+        id="home-background"
+        ref="homeBackground"
+        data-images="https://static-argvchs.netlify.app/images/background.jpg"
+    ></div>
     <div id="home-info" @click="homeClick">
         <span class="loop"></span>
         <span class="loop"></span>
@@ -169,67 +210,13 @@
         </span>
     </div>
 </div>
-<div id="home-posts-wrap" true ref="homePostsWrap">
+<div
+    id="home-posts-wrap"
+    ref="homePostsWrap"
+    true
+>
     <div id="home-posts">
         
-
-<div class="post">
-    <a href="/2023/06/20/%E5%88%86%E7%B1%BB%E5%A4%A7%E5%85%A8/">
-        <h2 class="post-title">文章分类大全</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/%E5%B7%A5%E5%85%B7/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                工具
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/6/20
-        </span>
-        
-        
-        <span class="special">
-            <i class="fa-solid fa-grip-vertical fa-fw"></i>
-        </span>
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p>这个文章是关于官网出现的所有<a href="/categories/">分类</a>的描述及介绍</p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/%E7%B4%AB%E8%89%B2%E7%A9%BA%E7%81%B5/" style="color: #ffa2c4">紫色空灵</a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/%E7%A2%8E%E5%B1%BFy/" style="color: #03a9f4">_碎屿y</a>
-        </span>
-        
-    </div>
-    <a href="/2023/06/20/%E5%88%86%E7%B1%BB%E5%A4%A7%E5%85%A8/" class="go-post">阅读全文</a>
-</div>
 
 <div class="post">
     <a href="/2023/06/20/%E6%A0%87%E7%AD%BE%E5%A4%A7%E5%85%A8/">
@@ -277,12 +264,12 @@
         
         <span class="tag">
             
-            <a href="/tags/%E7%B4%AB%E8%89%B2%E7%A9%BA%E7%81%B5/" style="color: #00bcd4">紫色空灵</a>
+            <a href="/tags/%E7%B4%AB%E8%89%B2%E7%A9%BA%E7%81%B5/" style="color: #ff7d73">紫色空灵</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E7%A2%8E%E5%B1%BFy/" style="color: #03a9f4">_碎屿y</a>
+            <a href="/tags/%E7%A2%8E%E5%B1%BFy/" style="color: #00a596">_碎屿y</a>
         </span>
         
     </div>
@@ -290,17 +277,17 @@
 </div>
 
 <div class="post">
-    <a href="/2023/07/14/update-230714/">
-        <h2 class="post-title">7月15日更新公告</h2>
+    <a href="/2023/06/20/%E5%88%86%E7%B1%BB%E5%A4%A7%E5%85%A8/">
+        <h2 class="post-title">文章分类大全</h2>
     </a>
     <div class="category-and-date">
         
         <span class="category">
-            <a href="/categories/%E5%85%AC%E5%91%8A/">
+            <a href="/categories/%E5%B7%A5%E5%85%B7/">
                 <span class="icon">
                     <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
-                公告
+                工具
             </a>
         </span>
         
@@ -308,7 +295,7 @@
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2023/7/14
+            2023/6/20
         </span>
         
         
@@ -320,7 +307,8 @@
     <div class="description">
         <div class="content" v-pre>
             
-            
+            <p>这个文章是关于官网出现的所有<a href="/categories/">分类</a>的描述及介绍</p>
+
             
         </div>
     </div>
@@ -334,15 +322,20 @@
         
         <span class="tag">
             
-            <a href="/tags/%E7%B4%AB%E8%89%B2%E7%A9%BA%E7%81%B5/" style="color: #00bcd4">紫色空灵</a>
+            <a href="/tags/%E7%B4%AB%E8%89%B2%E7%A9%BA%E7%81%B5/" style="color: #ff7d73">紫色空灵</a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/%E7%A2%8E%E5%B1%BFy/" style="color: #00bcd4">_碎屿y</a>
         </span>
         
     </div>
-    <a href="/2023/07/14/update-230714/" class="go-post">阅读全文</a>
+    <a href="/2023/06/20/%E5%88%86%E7%B1%BB%E5%A4%A7%E5%85%A8/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-    <a href="/2023/04/15/%E6%84%9F%E8%B0%A2/">
+    <a href="/2026/07/14/%E6%84%9F%E8%B0%A2/">
         <h2 class="post-title">感谢</h2>
     </a>
     <div class="category-and-date">
@@ -351,7 +344,7 @@
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2023/4/15
+            2026/7/14
         </span>
         
         
@@ -374,70 +367,16 @@
         
         <span class="tag">
             
-            <a href="/tags/%E7%B4%AB%E8%89%B2%E7%A9%BA%E7%81%B5/" style="color: #03a9f4">紫色空灵</a>
+            <a href="/tags/%E7%B4%AB%E8%89%B2%E7%A9%BA%E7%81%B5/" style="color: #00a596">紫色空灵</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E6%84%9F%E8%B0%A2/" style="color: #ffa2c4">感谢</a>
+            <a href="/tags/%E6%84%9F%E8%B0%A2/" style="color: #00bcd4">感谢</a>
         </span>
         
     </div>
-    <a href="/2023/04/15/%E6%84%9F%E8%B0%A2/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2023/04/15/about/">
-        <h2 class="post-title">关于服务器</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/%E5%85%AC%E5%91%8A/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                公告
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/4/15
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p>关于服务器</p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/%E6%AC%A2%E8%BF%8E/" style="color: #00bcd4">欢迎</a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/%E7%B4%AB%E8%89%B2%E7%A9%BA%E7%81%B5/" style="color: #ffa2c4">紫色空灵</a>
-        </span>
-        
-    </div>
-    <a href="/2023/04/15/about/" class="go-post">阅读全文</a>
+    <a href="/2026/07/14/%E6%84%9F%E8%B0%A2/" class="go-post">阅读全文</a>
 </div>
 
 
@@ -456,14 +395,34 @@
         <div id="card-style">
     <div id="card-div">
         <div class="avatar">
-            <img src="https://static-argvchs.netlify.app/images/avatar.jpg" alt="avatar" />
+            <img src="/images/avatar.jpg" alt="avatar" />
         </div>
         <div class="name">_碎屿y</div>
         <div class="description">
-            <p>无</p>
+            <p>服主</p>
 
         </div>
         
+        <div class="icon-links">
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://space.bilibili.com/595398998">
+                    <i
+                        class="fa-brands fa-bilibili fa-fw"
+                    ></i>
+                </a>
+            </span>
+            
+        </div>
+        
+        
+        <div class="friend-links">
+            
+            <div class="friend-link">
+                <a target="_blank" rel="noopener" href="https://space.bilibili.com/595398998">【B站】 _碎屿y</a>
+            </div>
+            
+        </div>
         
     </div>
 </div>
@@ -476,7 +435,7 @@
     <div id="footer-wrap">
         <div>
             &copy;
-            2022 - 2024 碎屿王国官网
+            2022 - 2026 碎屿王国官网
             <span id="footer-icon">
                 <i class="fa-solid fa-font-awesome fa-fw"></i>
             </span>
@@ -500,13 +459,13 @@
         
     </div>
     <script src="/js/main.js"></script>
+    <!-- 音乐播放器 YML 配置注入 -->
     <script>
-        console.info("Welcome to Argvchs' blog!");
-        if (!window.hasOwnProperty("ontouchstart")) {
-            let html = '<canvas id="fireworks" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 32767"></canvas><script src="https://static-argvchs.netlify.app/js/fireworks.min.js"><\/script>';
-            document.body.append(document.createRange().createContextualFragment(html));
-        }
+        // 从 _data/player.yml 加载的全局配置
+        window.__PLAYER_CONFIG__ = {"audio":{"server":"netease","type":"playlist","id":"18149841530","theme":"#49b1f5"},"behavior":{"autoplay":false,"loop":"all","order":"random","preload":"auto","default_volume":0.7,"remember_progress":true,"progress_tolerance":0.5},"ui":{"mode":"fixed","mini":true,"list_folded":true,"list_max_height":350,"initial_position":"left","edge_margin":15,"show_lrc_button":true,"show_list_fix_button":true,"show_history_button":true},"lyrics":{"lrc_type":3,"font_size":14,"font_size_min":10,"font_size_max":22,"font_size_step":2,"color":"#49b1f5","fullscreen_bg":"rgba(0,0,0,0.85)","enable_search":true},"history":{"enable":true,"max_records":30,"storage_key":"blog_player_history"},"sync":{"enable":true,"storage_key":"blog_player_state","save_delay":50},"responsive":{"mobile_breakpoint":768,"watch_breakpoint":480,"mobile_mini":true,"watch_minimal":true},"performance":{"drag_throttle":16,"animation_fps":60,"lrc_scroll_throttle":100}};
     </script>
+    <!-- 自定义 JS - 音乐播放器模块 -->
+    <script src="/js/custom.js"></script>
     
 </body>
 </html>

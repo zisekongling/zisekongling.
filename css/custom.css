@@ -1,0 +1,575 @@
+/**
+ * 音乐播放器自定义样式
+ * 适配 ParticleX 主题暗色模式
+ */
+
+/* 播放器基础样式 */
+.aplayer.aplayer-fixed {
+    z-index: 99;
+    cursor: grab;
+}
+
+/* 迷你模式下歌词不可用，隐藏歌词按钮 */
+.aplayer .aplayer-icon-lrc {
+    display: none !important;
+}
+
+.aplayer.aplayer-fixed:active {
+    cursor: grabbing;
+}
+
+/* 暗色模式适配 */
+.dark .aplayer {
+    background-color: #252d38 !important;
+    color: #c4c6c9 !important;
+}
+
+.dark .aplayer .aplayer-info .aplayer-music {
+    color: #c4c6c9 !important;
+}
+
+.dark .aplayer .aplayer-info .aplayer-controller .aplayer-time {
+    color: #a0a4a8 !important;
+}
+
+.dark .aplayer .aplayer-list ol li {
+    color: #c4c6c9 !important;
+    border-top: 1px solid #3a3f4b !important;
+}
+
+.dark .aplayer .aplayer-list ol li:hover {
+    background-color: #2d333d !important;
+}
+
+.dark .aplayer .aplayer-list ol li.aplayer-list-light {
+    background-color: #2d333d !important;
+}
+
+.dark .aplayer .aplayer-lrc {
+    color: #c4c6c9 !important;
+    text-shadow: none !important;
+}
+
+.dark .aplayer .aplayer-lrc p.aplayer-lrc-current {
+    color: #49b1f5 !important;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .aplayer.aplayer-fixed.aplayer-narrow {
+        max-width: calc(100vw - 30px) !important;
+    }
+}
+
+/* ==================== 文章目录侧边栏 ==================== */
+
+/* 目录侧边栏 - 固定定位在屏幕右侧 */
+.toc-sidebar {
+    position: fixed;
+    right: 20px;
+    top: 100px;
+    width: 220px;
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
+    font-size: 13px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #d9d9d980;
+    padding: 16px 0;
+    z-index: 50;
+    scrollbar-width: thin;
+    scrollbar-color: #c1c1c1 transparent;
+    opacity: 1;
+    transform: translateX(0);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* 收起状态 - 向右滑出并淡出 */
+.toc-sidebar.collapsed {
+    opacity: 0;
+    transform: translateX(30px);
+}
+
+/* 目录标题 */
+.toc-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 16px 12px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+}
+
+.toc-header i {
+    color: #49b1f5;
+    font-size: 14px;
+}
+
+/* 收起按钮 */
+.toc-collapse-btn {
+    margin-left: auto;
+    padding: 4px 8px;
+    border: none;
+    background: transparent;
+    color: #a0a4a8;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.toc-collapse-btn:hover {
+    color: #49b1f5;
+    background: #f0f7ff;
+}
+
+.dark .toc-collapse-btn:hover {
+    background: #2d333d;
+}
+
+/* 目录列表 */
+.toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toc-item {
+    line-height: 1.6;
+}
+
+/* 目录链接 */
+.toc-link {
+    display: block;
+    padding: 4px 16px;
+    color: #5c6b72;
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.toc-link:hover {
+    color: #49b1f5;
+    background: #f0f7ff;
+    border-left-color: #49b1f5;
+}
+
+/* 当前激活的目录项 */
+.toc-link.active {
+    color: #49b1f5;
+    background: #f0f7ff;
+    border-left-color: #49b1f5;
+    font-weight: 500;
+}
+
+/* 暗色模式适配 */
+.dark .toc-sidebar {
+    background: #252d38;
+    box-shadow: 0 0 20px #00000040;
+}
+
+.dark .toc-header {
+    color: #c4c6c9;
+    border-bottom-color: #3a3f4b;
+}
+
+.dark .toc-link {
+    color: #a0a4a8;
+}
+
+.dark .toc-link:hover {
+    color: #49b1f5;
+    background: #2d333d;
+}
+
+.dark .toc-link.active {
+    color: #49b1f5;
+    background: #2d333d;
+}
+
+/* ==================== 手机端目录系统 ==================== */
+
+/* 手机端目录切换按钮 - 固定在屏幕右侧 */
+.toc-mobile-btn {
+    display: none; /* 桌面端默认隐藏，手机端通过 media query 覆盖为 flex */
+    position: fixed;
+    right: 16px;
+    bottom: 80px;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: #49b1f5;
+    color: #fff;
+    font-size: 18px;
+    box-shadow: 0 2px 12px #49b1f580;
+    cursor: pointer;
+    z-index: 90;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+/* 桌面端收起目录后显示展开按钮 */
+@media (min-width: 901px) {
+    .toc-mobile-btn.show {
+        display: flex;
+    }
+}
+
+.toc-mobile-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 16px #49b1f599;
+}
+
+.toc-mobile-btn:active {
+    transform: scale(0.95);
+}
+
+/* 按钮打开状态 - 旋转图标变为叉号效果 */
+.toc-mobile-btn.open {
+    background: #5c6b72;
+    box-shadow: 0 2px 12px #5c6b7280;
+}
+
+.toc-mobile-btn.open i {
+    transform: rotate(90deg);
+    transition: transform 0.3s ease;
+}
+
+.toc-mobile-btn i {
+    transition: transform 0.3s ease;
+}
+
+/* 手机端目录遮罩层 */
+.toc-mobile-curtain {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 91;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.toc-mobile-curtain.show {
+    display: block;
+    opacity: 1;
+}
+
+/* 手机端目录侧边栏 - 从右侧滑入 */
+@media (max-width: 900px) {
+    /* 桌面端固定目录在手机上隐藏 */
+    .toc-sidebar {
+        display: none !important;
+    }
+
+    /* 显示手机端目录按钮 */
+    .toc-mobile-btn {
+        display: flex;
+    }
+
+    /* 手机端目录面板 - 从右侧滑入 */
+    .toc-sidebar.mobile-open {
+        display: block !important;
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 280px;
+        max-width: 80vw;
+        height: 100vh;
+        max-height: 100vh;
+        border-radius: 12px 0 0 12px;
+        box-shadow: -4px 0 20px #00000030;
+        z-index: 92;
+        padding: 20px 0;
+        overflow-y: auto;
+        transform: translateX(100%);
+        animation: tocSlideIn 0.3s ease forwards;
+    }
+
+    /* 滑入动画 */
+    @keyframes tocSlideIn {
+        from {
+            transform: translateX(100%);
+        }
+        to {
+            transform: translateX(0);
+        }
+    }
+
+    /* 滑出动画 */
+    .toc-sidebar.mobile-closing {
+        animation: tocSlideOut 0.25s ease forwards;
+    }
+
+    @keyframes tocSlideOut {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(100%);
+        }
+    }
+
+    /* 手机端目录标题稍大 */
+    .toc-sidebar.mobile-open .toc-header {
+        font-size: 16px;
+        padding: 0 20px 14px;
+    }
+
+    /* 手机端目录链接稍大，方便触摸 */
+    .toc-sidebar.mobile-open .toc-link {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+
+    /* 手机端禁用 collapsed 效果 */
+    .toc-sidebar.collapsed,
+    .toc-sidebar.mobile-open.collapsed {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 暗色模式手机端适配 */
+.dark .toc-mobile-btn {
+    box-shadow: 0 2px 12px #49b1f540;
+}
+
+.dark .toc-mobile-btn.open {
+    background: #3a3f4b;
+    box-shadow: 0 2px 12px #00000060;
+}
+
+.dark .toc-mobile-curtain {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.dark .toc-sidebar.mobile-open {
+    box-shadow: -4px 0 20px #00000060;
+}
+
+/* ==================== 瀑布流相册 ==================== */
+
+/* 相册页面容器 */
+.gallery-page {
+    margin: auto;
+    margin-top: 100px;
+    padding: 20px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* 相册标题区域 */
+.gallery-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.gallery-header h1 {
+    font-size: 30px;
+    color: #1e3e3f;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.gallery-desc {
+    color: #5c6b72;
+    font-size: 15px;
+    font-style: italic;
+}
+
+/* 分类筛选按钮区域 - 复刻 categories-tags 风格 */
+.gallery-categories {
+    margin: auto;
+    margin-bottom: 40px;
+    max-width: 900px;
+    text-align: center;
+    width: 100%;
+}
+
+.gallery-categories span {
+    display: inline-block;
+    margin: 8px;
+}
+
+.gallery-categories span .icon {
+    color: #fff;
+    margin-left: 0;
+    margin-right: 8px;
+}
+
+.gallery-cat-btn {
+    border: #ffffff80 1px solid;
+    border-radius: 10px;
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.25s, border 0.25s, color 0.25s, transform 0.2s;
+    cursor: pointer;
+    user-select: none;
+}
+
+.gallery-cat-btn:hover {
+    background: #fff !important;
+    border: #a5c2f5 1px solid;
+    color: #5c6b72;
+    transform: translateY(-2px);
+}
+
+.gallery-cat-btn.active {
+    background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%) !important;
+    border-color: transparent;
+    color: #fff;
+}
+
+/* 暗色模式分类按钮 */
+.dark .gallery-cat-btn:hover {
+    background: #3a3f4b !important;
+    color: #c4c6c9;
+}
+
+/* 瀑布流容器 - 使用 CSS columns 实现基础瀑布流 */
+.gallery-container {
+    column-count: 3;
+    column-gap: 20px;
+}
+
+/* 相册卡片 */
+.gallery-item {
+    break-inside: avoid;
+    margin-bottom: 20px;
+}
+
+.gallery-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #d9d9d980;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px #d9d9d9cc;
+}
+
+/* 相册图片 */
+.gallery-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.4s ease;
+}
+
+.gallery-card:hover .gallery-img {
+    transform: scale(1.03);
+}
+
+/* 相册信息区域 */
+.gallery-info {
+    padding: 14px 16px;
+}
+
+.gallery-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e3e3f;
+    margin-bottom: 6px;
+}
+
+.gallery-describe {
+    font-size: 13px;
+    color: #5c6b72;
+    line-height: 1.5;
+}
+
+/* 空状态 */
+.gallery-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: #5c6b72;
+    font-size: 15px;
+}
+
+.gallery-empty code {
+    background: #f0f0f0;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+/* 暗色模式适配 */
+.dark .gallery-header h1 {
+    color: #c4c6c9;
+}
+
+.dark .gallery-desc {
+    color: #a0a4a8;
+}
+
+.dark .gallery-card {
+    background: #252d38;
+    box-shadow: 0 0 20px #00000040;
+}
+
+.dark .gallery-card:hover {
+    box-shadow: 0 8px 30px #00000060;
+}
+
+.dark .gallery-title {
+    color: #c4c6c9;
+}
+
+.dark .gallery-describe {
+    color: #a0a4a8;
+}
+
+.dark .gallery-empty {
+    color: #a0a4a8;
+}
+
+.dark .gallery-empty code {
+    background: #3a3f4b;
+    color: #c4c6c9;
+}
+
+/* 响应式：平板双列 */
+@media (max-width: 900px) {
+    .gallery-container {
+        column-count: 2;
+        column-gap: 15px;
+    }
+
+    .gallery-item {
+        margin-bottom: 15px;
+    }
+
+    .gallery-page {
+        margin-top: 80px;
+        padding: 15px;
+    }
+}
+
+/* 响应式：手机单列 */
+@media (max-width: 500px) {
+    .gallery-container {
+        column-count: 1;
+    }
+
+    .gallery-header h1 {
+        font-size: 24px;
+    }
+}
+

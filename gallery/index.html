@@ -10,7 +10,7 @@
         }
     </script>
     <meta charset="utf-8" />
-    <title>categories | 碎屿王国官网</title>
+    <title>相册 | 碎屿王国官网</title>
     <meta name="author" content="_碎屿y" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -188,26 +188,91 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
-        
-        
-        
-        <span>
-            <a href="/categories/%E5%B7%A5%E5%85%B7/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                工具
-            </a>
-        </span>
-        
-        
+            <div class="gallery-page">
+    <div class="gallery-header">
+        <h1>相册</h1>
+        <p class="gallery-desc">这里有光影流年，还有两朵穿衣裳的云，相拥在明天的河岸。</p>
     </div>
     
+        
+        <!-- 分类筛选按钮 -->
+        <div class="gallery-categories" id="gallery-categories">
+            <span>
+                <a href="javascript:;" class="gallery-cat-btn active" data-category="all" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
+                    <span class="icon"><i class="fa-solid fa-images fa-fw"></i></span>
+                    全部
+                </a>
+            </span>
+            
+            
+                
+                <span>
+                    <a href="javascript:;" class="gallery-cat-btn" data-category="头像" style="background: #00a596">
+                        <span class="icon"><i class="fa-solid fa-bookmark fa-fw"></i></span>
+                        头像
+                    </a>
+                </span>
+            
+                
+                <span>
+                    <a href="javascript:;" class="gallery-cat-btn" data-category="超时空辉夜姬" style="background: #00bcd4">
+                        <span class="icon"><i class="fa-solid fa-bookmark fa-fw"></i></span>
+                        超时空辉夜姬
+                    </a>
+                </span>
+            
+        </div>
+        <!-- 瀑布流容器 -->
+        <div class="gallery-container" id="gallery-container">
+            
+                <div class="gallery-item" data-category="头像">
+                    <div class="gallery-card">
+                        <img class="gallery-img lazy" 
+                             src="/images/loading.gif" 
+                             data-src="https://s21.ax1x.com/2024/11/30/pA5bzTS.jpg" 
+                             alt="QQ头像" />
+                        <div class="gallery-info">
+                            <h3 class="gallery-title">QQ头像</h3>
+                            
+                                <p class="gallery-describe">朋友画的，没有名字</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="gallery-item" data-category="头像">
+                    <div class="gallery-card">
+                        <img class="gallery-img lazy" 
+                             src="/images/loading.gif" 
+                             data-src="https://s21.ax1x.com/2024/11/30/pA5LA9H.png" 
+                             alt="B站头像" />
+                        <div class="gallery-info">
+                            <h3 class="gallery-title">B站头像</h3>
+                            
+                                <p class="gallery-describe">星空列车与白的旅行 - 诺瓦</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="gallery-item" data-category="超时空辉夜姬">
+                    <div class="gallery-card">
+                        <img class="gallery-img lazy" 
+                             src="/images/loading.gif" 
+                             data-src="https://s41.ax1x.com/2026/07/15/pmyKzk9.jpg" 
+                             alt="辉夜" />
+                        <div class="gallery-info">
+                            <h3 class="gallery-title">辉夜</h3>
+                            
+                                <p class="gallery-describe">辉夜</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+    
 </div>
-
             <footer id="footer">
     <div id="footer-wrap">
         <div>
